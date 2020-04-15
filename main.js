@@ -43,14 +43,21 @@ const Student = (name, course , term = 1) => {
 
       if (this.courses.find(a => a.name === crs)){
           if(idx !== undefined){
-        return  this.courses.find(a => a.name === crs).terms[idx].grades.reduce((a,b)=> a + b.score , 0) / this.courses.find(a => a.name === crs).terms[idx].grades.length
+        return this.courses.find(a => a.name === crs)
+        .terms[idx].grades.reduce((a,b)=> a + b.score , 0) 
+        / this.courses.find(a => a.name === crs).terms[idx].grades.length
+
       }else {
-        return  this.courses.find(a => a.name === crs).terms[this.term -1].grades.reduce((a,b)=> a + b.score , 0) / this.courses.find(a => a.name === crs).terms[this.term -1].grades.length
+        return this.courses.find(a => a.name === crs)
+        .terms[this.term -1].grades.reduce((a,b)=> a + b.score , 0) 
+        / this.courses.find(a => a.name === crs).terms[this.term -1].grades.length
       }
     }else{
-      return  this.courses.find(a => a.name === this.course).terms[this.term -1].grades.reduce((a,b)=> a + b.score , 0) / this.courses.find(a => a.name === this.course).terms[this.term -1].grades.length
+      return this.courses.find(a => a.name === this.course)
+      .terms[this.term -1].grades.reduce((a,b)=> a + b.score , 0) 
+      / this.courses.find(a => a.name === this.course).terms[this.term -1].grades.length
     }
-    
+
     //   const average = (array) => {
     //     let total = 0
     //     let count = 0
